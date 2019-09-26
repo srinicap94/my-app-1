@@ -1,0 +1,12 @@
+node{
+  stage('SCM Checkout'){
+    git branch: 'master', url: 'https://github.com/srinicap94/my-app-1'
+    
+  }
+  
+  stage('Compile-Package'){
+    def mvn_home = tool name: 'maven3', type: 'maven'
+    sh '${mvn_home}/bin/mvn clean package
+  }
+  
+}
